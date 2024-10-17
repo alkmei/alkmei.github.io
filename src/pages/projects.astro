@@ -1,17 +1,12 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { Content } from "@/content/projects.md";
 ---
 
 <Layout title="Projects">
-  <section>
-    <h1>Projects</h1>
-    <h2>Web Development</h2>
-    <article>
-      <h3>Fake Overflow</h3>
-    </article>
-    <article>
-      <h3>Pokemon Simulator</h3>
-    </article>
-    <h2>Game Development</h2>
+  <section
+    class="mt-4 prose dark:prose-invert md:prose-lg lg:prose-xl dark:prose-blockquote:text-gray-300"
+  >
+    <Content />
   </section>
 </Layout>
