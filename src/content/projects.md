@@ -39,15 +39,3 @@ Autopsy is a 2d platformer, created using our professor's custom Typescript game
 
 - [Demo](https://autopsy-32c5e.web.app/)
 - [Source](https://github.com/alkmei/autopsy-wolfie2d)
-
-## Misc
-
-### OpenScribe
-
-**WIP**
-
-> typescript, rust, vue, tauri
-
-OpenScribe is an IDE for writers. It is heavily WIP and will aim to be a feature-rich writing/planning program.
-
-- [Source](https://github.com/alkmei/OpenScribe)
