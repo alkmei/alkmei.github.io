@@ -1,0 +1,48 @@
+---
+const { title, timeline, imageSrc, description, demoLink, sourceLink } =
+  Astro.props;
+import { Image } from "astro:assets";
+---
+
+<section>
+  {title && <h2 class="text-2xl divider">{title}</h2>}
+  {timeline && <p class="mb-4 text-xl text-center">{timeline}</p>}
+
+  {
+    imageSrc && (
+      <Image
+        src={imageSrc}
+        alt={title ?? ""}
+        class="mb-4 rounded-lg shadow-lg"
+      />
+    )
+  }
+  {description && <p class="mb-4">{description}</p>}
+
+  <div class="flex gap-4 mb-8">
+    {
+      demoLink && (
+        <a
+          href={demoLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-primary"
+        >
+          Demo
+        </a>
+      )
+    }
+    {
+      sourceLink && (
+        <a
+          href={sourceLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-secondary"
+        >
+          Source
+        </a>
+      )
+    }
+  </div>
+</section>

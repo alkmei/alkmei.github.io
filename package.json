@@ -14,5 +14,8 @@
     "astro": "^5.13.4",
     "daisyui": "^5.0.52",
     "tailwindcss": "^4.1.12"
+  },
+  "devDependencies": {
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

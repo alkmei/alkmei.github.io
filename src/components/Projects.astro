@@ -1,0 +1,16 @@
+---
+import FakeOverflow from "../assets/fake_overflow.png";
+import ProjectSection from "./ProjectSection.astro";
+---
+
+<main class="max-w-7xl mx-auto p-4" id="projects">
+  <h1 class="text-3xl font-bold mb-8 divider divider-primary">Projects</h1>
+  <ProjectSection
+    title="Fake Overflow"
+    timeline="April 2024 - May 2024"
+    imageSrc={FakeOverflow}
+    description="A simplified clone of Stack Overflow built with the MERN stack. It features user authentication, question posting, answer submission, tag searching, and voting functionality."
+    demoLink="https://fake-overflow-site.onrender.com/"
+    sourceLink="https://github.com/alkmei/fake-overflow"
+  />
+</main>
