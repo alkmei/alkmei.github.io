@@ -2,4 +2,31 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout> Hello </Layout>
+<Layout>
+  <div class="hero bg-base-200 min-h-screen">
+    <div class="hero-content flex-col">
+      <div class="card bg-base-100 shadow-2xl w-full min-w-md">
+        <div class="card-body">
+          <h1 class="divider divider-primary text-xl">Login</h1>
+          <fieldset class="fieldset">
+            <label class="label">Email</label>
+            <input type="email" class="input w-full" placeholder="Email" />
+            <label class="label">Password</label>
+            <input
+              type="password"
+              class="input w-full"
+              placeholder="Password"
+            />
+            <div><a class="link link-hover">Forgot password?</a></div>
+            <button class="btn btn-neutral mt-4">Login</button>
+          </fieldset>
+          <div class="divider">OR</div>
+          <a class="btn btn-outline">Login with Google</a>
+          <a href="/register" class="link-hover mt-2 w-fit m-auto"
+            >Register an account</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -46,8 +46,8 @@ const { class: customClass = "" } = Astro.props;
       if (savedTheme) {
         currentTheme = savedTheme;
       } else {
-        // If browser prefers dark, set to "light", otherwise set to "business"
-        currentTheme = prefersDark ? "light" : "abyss";
+        // If browser prefers dark, set to "light", otherwise set to "dark"
+        currentTheme = prefersDark ? "light" : "dark";
       }
 
       // Apply the theme
@@ -58,7 +58,7 @@ const { class: customClass = "" } = Astro.props;
 
       // Add event listener for theme toggle
       themeToggle.addEventListener("change", function () {
-        const newTheme = this.checked ? "light" : "business";
+        const newTheme = this.checked ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
       });
@@ -69,7 +69,7 @@ const { class: customClass = "" } = Astro.props;
         .addEventListener("change", function (e) {
           if (!localStorage.getItem("theme")) {
             // Only auto-update if user hasn't manually set a preference
-            const newTheme = e.matches ? "light" : "business";
+            const newTheme = e.matches ? "light" : "dark";
             document.documentElement.setAttribute("data-theme", newTheme);
             themeToggle.checked = newTheme === "light";
           }
