@@ -1,0 +1,17 @@
+---
+import ThemeController from "./ThemeController.astro";
+---
+
+<div class="navbar bg-base-100 shadow-sm fixed">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">Alvin</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1 gap-2">
+      <li><a href="/#projects">Projects</a></li>
+      <li>
+        <ThemeController class="w-8 h-8" />
+      </li>
+    </ul>
+  </div>
+</div>
