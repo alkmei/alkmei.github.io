@@ -2,13 +2,14 @@
 import ThemeController from "./ThemeController.astro";
 ---
 
-<div class="navbar bg-base-100/80 shadow-sm fixed z-50 backdrop-blur-md">
+<div class="navbar bg-base-100/80 shadow-sm fixed z-50 backdrop-blur-md top-0">
   <div class="flex-1">
-    <a class="btn btn-ghost text-xl">alkmei</a>
+    <a class="btn btn-ghost text-xl" href="/">alkmei</a>
   </div>
   <div class="flex-none mr-2">
     <ul class="menu menu-horizontal px-1 gap-2">
       <li><a href="/#projects">Projects</a></li>
+      <li><a href="/about">About</a></li>
       <li>
         <ThemeController class="w-8 h-8" />
       </li>
