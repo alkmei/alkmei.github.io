@@ -5,7 +5,7 @@
 # Storage settings - store as project items
 storage:
   type: project
-  projectId: 9 # Replace with your GitHub Project ID (found in project URL)
+  projectNumber: 9 # Replace with your GitHub Project ID (found in project URL)
 
 # Feedback modal settings
 feedback:
