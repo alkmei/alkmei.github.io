@@ -36,9 +36,4 @@ fields:
     type: select
     options: ["Bug", "Feature Request", "Improvement", "Question"]
     required: true
-
-  - name: priority
-    label: "Priority"
-    type: select
-    options: ["Low", "Medium", "High"]
-    required: false
+    
