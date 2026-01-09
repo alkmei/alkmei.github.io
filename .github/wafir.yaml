@@ -5,6 +5,7 @@
 # Storage settings - store as project items
 storage:
   type: project
+  projectNumber: 9
 
 # Feedback modal settings
 feedback:
