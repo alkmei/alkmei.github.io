@@ -42,9 +42,3 @@ fields:
     type: select
     options: ["Low", "Medium", "High"]
     required: false
-
-  - name: area
-    label: "Affected Area"
-    type: select
-    options: ["UI/UX", "Backend", "API", "Documentation", "Other"]
-    required: false
