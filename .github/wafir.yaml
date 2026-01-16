@@ -1,39 +1,33 @@
-# WAFIR Configuration Example - GitHub Projects
-# Stores feedback as GitHub Project items for kanban-style tracking
+# WAFIR Configuration Example - Feedback Only
+# Collects user satisfaction ratings instead of bug reports
 # Place this file in .github/wafir.yaml in your repository
 
-# Storage settings - store as project items
+# Widget mode - feedback only (star rating)
+mode: feedback
+
+# Storage settings (feedback stored as issues with different labels)
 storage:
-  type: project
-  projectNumber: 9
+  type: issue
+
+# Dedicated project for feedback with rating field
+# Follow setup guide to create Rating field with star emoji options (⭐, ⭐⭐, etc.)
+feedbackProject:
+  projectNumber: 9 # Your feedback project number
+  ratingField: "Rating" # Name of the Rating field in your project
 
 # Feedback modal settings
 feedback:
-  title: "Submit Feedback"
-  labels: ["wafir"]
+  title: "How are we doing?"
+  labels: ["feedback", "user-satisfaction"]
 
-# Automatic data collection
-issue:
-  screenshot: true
-  browserInfo: true
-  consoleLog: false
-  labels: ["feedback"]
-
-# Form fields mapped to project columns/fields
+# Form fields - these will be shown after the star rating
 fields:
   - name: title
-    label: "Summary"
+    label: "What's on your mind?"
     type: text
-    required: true
+    required: false
 
-  - name: description
-    label: "Details"
+  - name: comment
+    label: "Tell us more (optional)"
     type: textarea
-    required: true
-
-  - name: type
-    label: "Type"
-    type: select
-    options: ["Bug", "Feature Request", "Improvement", "Question"]
-    required: true
-    
+    required: false
