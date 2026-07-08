@@ -30,13 +30,13 @@ const { class: customClass = "" } = Astro.props;
   <script>
     function initializeTheme() {
       const themeToggle = document.getElementById(
-        "theme-toggle"
+        "theme-toggle",
       ) as HTMLInputElement;
       if (!themeToggle) return;
 
       // Check browser preference for dark mode
       const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
+        "(prefers-color-scheme: dark)",
       ).matches;
 
       // Get saved theme or use browser preference
