@@ -1,0 +1,91 @@
+---
+import Image from "astro/components/Image.astro";
+import type { JSX } from "astro/jsx-runtime";
+import { Image } from "astro:assets";
+import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+import Layout from "@/layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return Promise.all(
+    projects.map(async (project) => {
+      const { Content } = await render(project);
+
+      return {
+        params: { slug: project.id },
+        props: { ...project.data, Content },
+      };
+    }),
+  );
+}
+
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+  };
+  link?: string;
+  Content: () => JSX.Element;
+}
+
+const { title, description, tags, image, link, Content } = Astro.props;
+---
+
+<Layout>
+  <div class="container mx-auto px-4 pt-24 pb-16">
+    <div class="max-w-4xl mx-auto">
+      <a href="/projects/" class="btn btn-ghost btn-sm gap-1 mb-8">
+        <Icon name="tabler:arrow-left" /> Back to Projects
+      </a>
+
+      <div class="relative rounded-t-box overflow-hidden mb-12">
+        {
+          image && (
+            <>
+              <Image src={image} alt={title} class="w-full h-64 object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-base-300 via-base-300/50 to-base-300/20" />
+            </>
+          )
+        }
+        <div class="absolute inset-0 flex flex-col justify-end p-8">
+          <h1 class="text-4xl font-bold mb-2 text-base-content">{title}</h1>
+          <p class="text-lg text-base-content/80 mb-3">{description}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            {
+              tags.map((tag) => (
+                <span class="badge badge-neutral badge-sm bg-base-300/80 backdrop-blur-sm">
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      {
+        link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary mb-12"
+          >
+            Visit Project
+          </a>
+        )
+      }
+
+      <div class="prose prose-lg max-w-none">
+        <Content />
+      </div>
+    </div>
+  </div>
+</Layout>

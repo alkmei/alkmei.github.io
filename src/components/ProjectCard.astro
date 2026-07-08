@@ -1,10 +1,16 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
   title: string;
   description: string;
   tags: string[];
   link: string;
-  image?: string;
+  image?: {
+    src: string;
+    width: number;
+    height: number;
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
+  };
 }
 
 const { title, description, tags, link, image } = Astro.props;
@@ -16,7 +22,7 @@ const { title, description, tags, link, image } = Astro.props;
 >
   {
     image ? (
-      <img
+      <Image
         src={image}
         alt=""
         class="absolute inset-0 w-full h-full object-cover"
