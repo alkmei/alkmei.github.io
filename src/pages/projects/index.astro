@@ -1,0 +1,45 @@
+---
+import Autopsy from "@/assets/autopsy.png";
+import FakeOverflow from "@/assets/fake_overflow.png";
+import HiScored from "@/assets/hiscored.png";
+import SafariZone from "@/assets/safari_zone.png";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout>
+  <h1 class="mt-24 mb-8 text-4xl font-logo text-center">Projects</h1>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 container mx-auto">
+    <ProjectCard
+      title="HiScored"
+      description="A game ranking website with a ranking algorithm based on binary searching."
+      tags={["Game Ranking", "Algorithm"]}
+      image={HiScored.src}
+      link="https://www.hiscored.com/"
+    />
+
+    <ProjectCard
+      title="Fake Overflow"
+      description="A simplified clone of Stack Overflow built with the MERN stack. It features user authentication, question posting, answer submission, tag searching, and voting functionality."
+      tags={["MERN", "React", "Node.js"]}
+      image={FakeOverflow.src}
+      link="https://fake-overflow-site.onrender.com/"
+    />
+
+    <ProjectCard
+      title="Autopsy"
+      description="A web game built using Typescript and our professor's custom game engine called Wolfie2d. The game engine was designed to be as barebones as possible."
+      tags={["TypeScript", "Game Development", "Wolfie2d"]}
+      image={Autopsy.src}
+      link="https://autopsy-32c5e.web.app/"
+    />
+
+    <ProjectCard
+      title="Safari Zone"
+      description="A Vue 3 app that allows users to catch and take care of different Pokémon."
+      tags={["Vue 3", "JavaScript", "Pokémon"]}
+      image={SafariZone.src}
+      link="https://safari-zone.netlify.app"
+    />
+  </div>
+</Layout>

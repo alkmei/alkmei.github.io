@@ -2,12 +2,28 @@
 import ThemeController from "./ThemeController.astro";
 ---
 
-<div class="fixed top-0 w-full z-50 bg-base-100/80 shadow-sm backdrop-blur-md">
-  <div class="navbar max-w-7xl mx-auto px-4">
-    <div class="flex-1">
+<div
+  id="navbar"
+  class="fixed top-0 left-0 w-full z-50 bg-base-100/80 shadow-sm backdrop-blur-md transition-transform duration-300"
+>
+  <div class="navbar justify-between max-w-7xl mx-auto px-4">
+    <div>
       <a class="text-3xl font-logo" href="/">alkmei</a>
     </div>
-    <div class="flex-none mr-2">
+
+    <div>
+      <nav>
+        <ul class="menu menu-horizontal px-1">
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/projects">Projects</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div>
       <ul class="menu menu-horizontal px-1 gap-2">
         <li>
           <ThemeController class="w-8 h-8" />
@@ -16,3 +32,33 @@ import ThemeController from "./ThemeController.astro";
     </div>
   </div>
 </div>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  let lastScrollY = window.scrollY;
+  let ticking = false;
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          navbar?.classList.add("nav-hidden");
+        } else {
+          navbar?.classList.remove("nav-hidden");
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+</script>
+
+<style>
+  .nav-hidden {
+    transform: translateY(-100%);
+  }
+</style>
