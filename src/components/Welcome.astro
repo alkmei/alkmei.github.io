@@ -1,25 +1,24 @@
 ---
-import Github from "../assets/github.svg";
-import LinkedIn from "../assets/linkedin.svg";
+import { Icon } from "astro-icon/components";
 ---
 
 <section class="hero bg-base-200 h-screen min-h-[50rem]">
   <div class="hero-content text-center">
     <div class="max-w-md">
-      <h1 class="text-5xl font-bold font-logo text-primary">
-        Hello, I'm Alvin
-      </h1>
-      <p class="py-6 text-lg">I make things.</p>
+      <h1 class="text-5xl font-bold font-logo text-primary">Hi, I'm Alvin!</h1>
+      <p class="py-6 text-lg">
+        I'm a NYC-based software engineer who builds solutions. I specialize in
+        backend development, both with heavy-duty frameworks and minimal,
+        lightweight tools.
+      </p>
 
       <div class="flex flex-wrap justify-center gap-2">
-        <a class="btn btn-primary" href="#projects">Projects</a>
-
         <a
           class="btn btn-secondary"
           href="https://github.com/alkmei"
           aria-label="Visit my Github profile"
         >
-          <Github width={16} aria-hidden="true" /> Github
+          <Icon name="tabler:brand-github-filled" aria-hidden="true" /> Github
         </a>
 
         <a
@@ -27,7 +26,7 @@ import LinkedIn from "../assets/linkedin.svg";
           href="https://www.linkedin.com/in/alvinmei"
           aria-label="Visit my LinkedIn profile"
         >
-          <LinkedIn width={16} aria-hidden="true" /> LinkedIn
+          <Icon name="tabler:brand-linkedin-filled" aria-hidden="true" /> LinkedIn
         </a>
       </div>
     </div>
