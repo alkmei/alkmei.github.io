@@ -41,7 +41,11 @@ const { title, description, tags, image, link, Content } = Astro.props;
 <Layout>
   <div class="container mx-auto px-4 pt-24 pb-16">
     <div class="max-w-4xl mx-auto">
-      <a href="/projects/" class="btn btn-ghost btn-sm gap-1 mb-8">
+      <a
+        href="/projects/"
+        class="btn btn-ghost btn-sm gap-1 mb-8"
+        data-astro-prefetch
+      >
         <Icon name="tabler:arrow-left" /> Back to Projects
       </a>
 
