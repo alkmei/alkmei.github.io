@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string;
+  image?: string;
+}
+
+const { title, description, tags, link, image } = Astro.props;
+---
+
+<a
+  href={link}
+  class="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-base-200 group"
+>
+  {
+    image ? (
+      <figure class="h-48 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+        />
+      </figure>
+    ) : (
+      <div class="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
+        <span class="text-primary font-bold opacity-50 text-4xl">{"</>"}</span>
+      </div>
+    )
+  }
+
+  <div class="card-body">
+    <h2 class="card-title">{title}</h2>
+    <p class="text-sm text-base-content/70">{description}</p>
+
+    <div class="card-actions justify-end mt-4">
+      {
+        tags.map((tag) => (
+          <span class="badge badge-outline badge-sm">{tag}</span>
+        ))
+      }
+    </div>
+  </div>
+</a>
