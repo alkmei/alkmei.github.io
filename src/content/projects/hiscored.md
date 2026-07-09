@@ -8,4 +8,3 @@ sourceLink: "https://github.com/alkmei/hiscored"
 dateRange: "January 2025"
 ---
 
-## Post Mortem

@@ -8,4 +8,3 @@ sourceLink: "https://github.com/staten-island-tech/vue-project-2-jasvinmondianay
 dateRange: "~2022"
 ---
 
-## Post Mortem
