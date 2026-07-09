@@ -4,6 +4,7 @@ description: "A web game built using Typescript and our professor's custom game 
 tags: ["TypeScript", "Game Development", "Wolfie2d"]
 image: "@/assets/autopsy.png"
 link: "https://autopsy-32c5e.web.app/"
+sourceLink: "https://github.com/alkmei/autopsy-wolfie2d"
 ---
 
 ## Post Mortem

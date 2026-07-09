@@ -4,6 +4,7 @@ description: "A simplified clone of Stack Overflow built with the MERN stack. It
 tags: ["MongoDB", "React", "Node.js", "Express"]
 image: "@/assets/fake_overflow.png"
 link: "https://fake-overflow-site.onrender.com/"
+sourceLink: "https://github.com/alkmei/fake-overflow"
 ---
 
 ## Post Mortem
