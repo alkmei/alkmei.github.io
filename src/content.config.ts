@@ -9,7 +9,7 @@ const projects = defineCollection({
       title: z.string(),
       description: z.string(),
       tags: z.array(z.string()),
-      image: image(),
+      image: image().optional(),
       link: z.string().optional(),
     }),
 });

@@ -49,42 +49,47 @@ const { title, description, tags, image, link, Content } = Astro.props;
         <Icon name="tabler:arrow-left" /> Back to Projects
       </a>
 
-      <div class="relative rounded-t-box overflow-hidden mb-12">
+      <div class="card bg-base-100 border border-base-200 mb-12">
         {
           image && (
-            <>
-              <Image src={image} alt={title} class="w-full h-64 object-cover" />
-              <div class="absolute inset-0 bg-gradient-to-t from-base-300 via-base-300/50 to-base-300/20" />
-            </>
+            <figure class="h-64 w-full">
+              <Image
+                src={image}
+                alt={title}
+                class="w-full h-full object-cover"
+              />
+            </figure>
           )
         }
-        <div class="absolute inset-0 flex flex-col justify-end p-8">
-          <h1 class="text-4xl font-bold mb-2 text-base-content">{title}</h1>
-          <p class="text-lg text-base-content/80 mb-3">{description}</p>
+
+        <div class="card-body">
+          <h1 class="card-title text-4xl mb-2">{title}</h1>
+          <p class="text-base-content/80 mb-3">{description}</p>
+
           <div class="flex flex-wrap gap-2 mb-4">
             {
               tags.map((tag) => (
-                <span class="badge badge-neutral badge-sm bg-base-300/80 backdrop-blur-sm">
-                  {tag}
-                </span>
+                <span class="badge badge-neutral badge-sm">{tag}</span>
               ))
             }
           </div>
+
+          {
+            link && (
+              <div class="card-actions justify-end mt-2">
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary"
+                >
+                  Visit Project
+                </a>
+              </div>
+            )
+          }
         </div>
       </div>
-
-      {
-        link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary mb-12"
-          >
-            Visit Project
-          </a>
-        )
-      }
 
       <div class="prose prose-lg max-w-none">
         <Content />
