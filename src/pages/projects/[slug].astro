@@ -32,10 +32,12 @@ interface Props {
     format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
   };
   link?: string;
+  sourceLink?: string;
   Content: () => JSX.Element;
 }
 
-const { title, description, tags, image, link, Content } = Astro.props;
+const { title, description, tags, image, link, sourceLink, Content } =
+  Astro.props;
 ---
 
 <Layout>
@@ -74,9 +76,9 @@ const { title, description, tags, image, link, Content } = Astro.props;
             }
           </div>
 
-          {
-            link && (
-              <div class="card-actions justify-end mt-2">
+          <div class="card-actions justify-end mt-2 gap-2">
+            {
+              link && (
                 <a
                   href={link}
                   target="_blank"
@@ -85,9 +87,21 @@ const { title, description, tags, image, link, Content } = Astro.props;
                 >
                   Visit Project
                 </a>
-              </div>
-            )
-          }
+              )
+            }
+            {
+              sourceLink && (
+                <a
+                  href={sourceLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-outline"
+                >
+                  <Icon name="tabler:brand-github" /> View Source
+                </a>
+              )
+            }
+          </div>
         </div>
       </div>
 
