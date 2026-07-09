@@ -33,10 +33,11 @@ interface Props {
   };
   link?: string;
   sourceLink?: string;
+  dateRange?: string;
   Content: () => JSX.Element;
 }
 
-const { title, description, tags, image, link, sourceLink, Content } =
+const { title, description, tags, image, link, sourceLink, dateRange, Content } =
   Astro.props;
 ---
 
@@ -67,6 +68,10 @@ const { title, description, tags, image, link, sourceLink, Content } =
         <div class="card-body">
           <h1 class="card-title text-4xl mb-2">{title}</h1>
           <p class="text-base-content/80 mb-3">{description}</p>
+
+          {
+            dateRange && <p class="text-sm text-base-content/50 mb-4">{dateRange}</p>
+          }
 
           <div class="flex flex-wrap gap-2 mb-4">
             {

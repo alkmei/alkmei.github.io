@@ -12,6 +12,7 @@ const projects = defineCollection({
       image: image().optional(),
       link: z.string().optional(),
       sourceLink: z.string().optional(),
+      dateRange: z.string().optional(),
     }),
 });
 

@@ -5,6 +5,7 @@ tags: ["Vue 3", "JavaScript", "Firebase"]
 image: "@/assets/safari_zone.png"
 link: "https://safari-zone.netlify.app"
 sourceLink: "https://github.com/staten-island-tech/vue-project-2-jasvinmondianaytha"
+dateRange: "~2022"
 ---
 
 ## Post Mortem

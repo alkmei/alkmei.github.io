@@ -5,6 +5,7 @@ tags: ["Django", "HTMX", "Alpine.js", "Social"]
 image: "@/assets/hiscored.png"
 link: "https://www.hiscored.com/"
 sourceLink: "https://github.com/alkmei/hiscored"
+dateRange: "January 2025"
 ---
 
 ## Post Mortem
