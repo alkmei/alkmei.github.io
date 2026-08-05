@@ -42,77 +42,71 @@ const { title, description, tags, image, link, sourceLink, dateRange, Content } 
 ---
 
 <Layout>
-  <div class="container mx-auto px-4 pt-24 pb-16">
-    <div class="max-w-4xl mx-auto">
-      <a
-        href="/projects/"
-        class="btn btn-ghost btn-sm gap-1 mb-8"
-        data-astro-prefetch
-      >
-        <Icon name="tabler:arrow-left" /> Back to Projects
-      </a>
+  <div>
+    <a
+      href="/projects/"
+      data-astro-prefetch
+    >
+      <Icon name="tabler:arrow-left" /> Back to Projects
+    </a>
 
-      <div class="card bg-base-100 border border-base-200 mb-12">
+    <div>
+      {
+        image && (
+          <figure>
+            <Image
+              src={image}
+              alt={title}
+            />
+          </figure>
+        )
+      }
+
+      <div>
+        <h1>{title}</h1>
+        <p>{description}</p>
+
         {
-          image && (
-            <figure class="h-64 w-full">
-              <Image
-                src={image}
-                alt={title}
-                class="w-full h-full object-cover"
-              />
-            </figure>
-          )
+          dateRange && <p>{dateRange}</p>
         }
 
-        <div class="card-body">
-          <h1 class="card-title text-4xl mb-2">{title}</h1>
-          <p class="text-base-content/80 mb-3">{description}</p>
-
+        <div>
           {
-            dateRange && <p class="text-sm text-base-content/50 mb-4">{dateRange}</p>
+            tags.map((tag) => (
+              <span>{tag}</span>
+            ))
           }
+        </div>
 
-          <div class="flex flex-wrap gap-2 mb-4">
-            {
-              tags.map((tag) => (
-                <span class="badge badge-neutral badge-sm">{tag}</span>
-              ))
-            }
-          </div>
-
-          <div class="card-actions justify-end mt-2 gap-2">
-            {
-              link && (
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-primary"
-                >
-                  Visit Project
-                </a>
-              )
-            }
-            {
-              sourceLink && (
-                <a
-                  href={sourceLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="btn btn-outline"
-                >
-                  <Icon name="tabler:brand-github" /> View Source
-                </a>
-              )
-            }
-          </div>
+        <div>
+          {
+            link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit Project
+              </a>
+            )
+          }
+          {
+            sourceLink && (
+              <a
+                href={sourceLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon name="tabler:brand-github" /> View Source
+              </a>
+            )
+          }
         </div>
       </div>
+    </div>
 
-      <div class="prose prose-lg max-w-none">
-        <Content />
-      </div>
+    <div>
+      <Content />
     </div>
   </div>
 </Layout>

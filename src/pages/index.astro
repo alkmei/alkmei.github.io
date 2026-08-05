@@ -3,36 +3,31 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section class="hero bg-base-200 h-screen min-h-[50rem]">
-    <div class="hero-content text-center">
-      <div class="max-w-md">
-        <h1 class="text-5xl font-bold font-logo text-primary">
-          Hi, I'm Alvin!
-        </h1>
-        <p class="py-6 text-lg">
-          I'm a NYC-based software engineer who builds stuff. I specialize in
-          backend development, both with heavy-duty frameworks and minimal,
-          lightweight tools.
-        </p>
+  <section>
+    <div>
+      <h1>Alvin Mei</h1>
 
-        <div class="flex flex-wrap justify-center gap-2">
+      <ul>
+        <li>
+          <a href="/projects" aria-label="Look at my projects"> Projects </a>
+        </li>
+        <li>
           <a
-            class="link-primary link-hover"
             href="https://github.com/alkmei"
             aria-label="Visit my Github profile"
           >
             Github
           </a>
-
+        </li>
+        <li>
           <a
-            class="link-primary link-hover"
             href="https://www.linkedin.com/in/alvinmei"
             aria-label="Visit my LinkedIn profile"
           >
             LinkedIn
           </a>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </section>
 </Layout>

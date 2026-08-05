@@ -8,8 +8,8 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <h1 class="mt-24 mb-8 text-4xl font-logo text-center">Projects</h1>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 container mx-auto">
+  <h1>Projects</h1>
+  <div>
     {
       projects.map((project) => (
         <ProjectCard
