@@ -1,46 +1,16 @@
 ---
-import { Image } from "astro:assets";
 interface Props {
   title: string;
   description: string;
-  tags: string[];
   link: string;
-  image?: {
-    src: string;
-    width: number;
-    height: number;
-    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg" | "avif";
-  };
 }
 
-const { title, description, tags, link, image } = Astro.props;
+const { title, description, link } = Astro.props;
 ---
 
-<a
-  href={link}
-  data-astro-prefetch
->
-  {
-    image ? (
-      <Image
-        src={image}
-        alt=""
-      />
-    ) : (
-      <div />
-    )
-  }
-
-  <div>
-    <h2>{title}</h2>
-    <p>{description}</p>
-
-    <div>
-      {
-        tags.map((tag) => (
-          <span>{tag}</span>
-        ))
-      }
-    </div>
-  </div>
-</a>
+<article>
+  <h2>
+    <a href={link} data-astro-prefetch>{title}</a>
+  </h2>
+  <p>{description}</p>
+</article>

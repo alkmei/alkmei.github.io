@@ -1,5 +1,10 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const projects = await getCollection("projects");
 ---
 
 <Layout>
@@ -8,9 +13,6 @@ import Layout from "../layouts/Layout.astro";
       <h1>Alvin Mei</h1>
 
       <ul>
-        <li>
-          <a href="/projects" aria-label="Look at my projects"> Projects </a>
-        </li>
         <li>
           <a
             href="https://github.com/alkmei"
@@ -28,6 +30,21 @@ import Layout from "../layouts/Layout.astro";
           </a>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div>
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            link={`/projects/${project.id}`}
+          />
+        ))
+      }
     </div>
   </section>
 </Layout>

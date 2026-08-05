@@ -2,7 +2,6 @@
 import type { JSX } from "astro/jsx-runtime";
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
-import { Icon } from "astro-icon/components";
 
 import Layout from "@/layouts/Layout.astro";
 
@@ -37,71 +36,66 @@ interface Props {
   Content: () => JSX.Element;
 }
 
-const { title, description, tags, image, link, sourceLink, dateRange, Content } =
-  Astro.props;
+const {
+  title,
+  description,
+  tags,
+  image,
+  link,
+  sourceLink,
+  dateRange,
+  Content,
+} = Astro.props;
 ---
 
 <Layout>
   <div>
-    <a
-      href="/projects/"
-      data-astro-prefetch
-    >
-      <Icon name="tabler:arrow-left" /> Back to Projects
-    </a>
+    <a href="/projects/" data-astro-prefetch> Back to Projects </a>
 
     <div>
-      {
-        image && (
+      <style>
+        figure {
+          max-width: 800px;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+      </style>
+
+      {image && (
           <figure>
-            <Image
-              src={image}
-              alt={title}
-            />
+            <Image src={image} alt={title} />
           </figure>
-        )
-      }
+        )}
 
       <div>
         <h1>{title}</h1>
         <p>{description}</p>
 
-        {
-          dateRange && <p>{dateRange}</p>
-        }
+        {dateRange && <p>{dateRange}</p>}
 
-        <div>
-          {
-            tags.map((tag) => (
-              <span>{tag}</span>
-            ))
-          }
-        </div>
-
-        <div>
+        <ul>
           {
             link && (
-              <a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit Project
-              </a>
+              <li>
+                <a href={link} target="_blank" rel="noopener noreferrer">
+                  Visit Project
+                </a>
+              </li>
             )
           }
           {
             sourceLink && (
-              <a
-                href={sourceLink}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon name="tabler:brand-github" /> View Source
-              </a>
+              <li>
+                <a href={sourceLink} target="_blank" rel="noopener noreferrer">
+                  View Source
+                </a>
+              </li>
             )
           }
-        </div>
+        </ul>
       </div>
     </div>
 
