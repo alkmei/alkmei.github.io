@@ -1,41 +1,41 @@
 ---
 import { getCollection } from "astro:content";
 
-import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import Layout from "../layouts/Layout.astro";
 
 const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <section>
-    <div>
-      <h1>Alvin Mei</h1>
+  <h1 class="my-3">Alvin Mei</h1>
 
-      <ul>
-        <li>
-          <a
-            href="https://github.com/alkmei"
-            aria-label="Visit my Github profile"
-          >
-            Github
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://www.linkedin.com/in/alvinmei"
-            aria-label="Visit my LinkedIn profile"
-          >
-            LinkedIn
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <nav aria-label="Social links" class="mb-10">
+    <ul class="list-none flex gap-4 m-0 p-0">
+      <li>
+        <a
+          href="https://github.com/alkmei"
+          aria-label="Visit my Github profile"
+          class="font-semibold hover:underline"
+        >
+          Github
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/alvinmei"
+          aria-label="Visit my LinkedIn profile"
+          class="font-semibold hover:underline"
+        >
+          LinkedIn
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-  <section>
-    <h2>Projects</h2>
-    <div>
+  <section aria-label="Projects" class="mt-12">
+    <h2 class="mb-4">Side Projects</h2>
+    <div class="space-y-4">
       {
         projects.map((project) => (
           <ProjectCard

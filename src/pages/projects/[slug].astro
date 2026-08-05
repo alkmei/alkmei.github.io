@@ -50,25 +50,16 @@ const {
 
 <Layout>
   <div>
-    <a href="/projects/" data-astro-prefetch> Back to Projects </a>
+    <a href="/" data-astro-prefetch> Back to Projects </a>
 
     <div>
-      <style>
-        figure {
-          max-width: 800px;
-        }
-
-        img {
-          max-width: 100%;
-          height: auto;
-        }
-      </style>
-
-      {image && (
-          <figure>
-            <Image src={image} alt={title} />
+      {
+        image && (
+          <figure class="max-w-200">
+            <Image src={image} alt={title} class="max-w-full h-auto" />
           </figure>
-        )}
+        )
+      }
 
       <div>
         <h1>{title}</h1>
@@ -99,7 +90,7 @@ const {
       </div>
     </div>
 
-    <div>
+    <div class="prose">
       <Content />
     </div>
   </div>

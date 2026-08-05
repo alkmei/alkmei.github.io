@@ -1,5 +1,5 @@
 ---
-import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -14,11 +14,17 @@ import Footer from "../components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>Alvin Mei</title>
   </head>
-  <body>
-    <main>
+  <body
+    class="font-serif min-h-screen bg-stone-300 text-stone-900 flex w-full flex-col p-4 font-normal md:px-10 md:py-5"
+  >
+    <main class="w-full md:w-3/4 md:max-w-2xl mx-auto">
       <slot />
     </main>
 
-    <Footer />
+    <footer class="mt-4 text-center">
+      <aside>
+        <p>Contact me at alvinkmei [at] gmail.com</p>
+      </aside>
+    </footer>
   </body>
 </html>

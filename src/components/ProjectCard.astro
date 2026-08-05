@@ -10,7 +10,7 @@ const { title, description, link } = Astro.props;
 
 <article>
   <h2>
-    <a href={link} data-astro-prefetch>{title}</a>
+    <a href={link} data-astro-prefetch class="font-semibold hover:underline">{title}</a>
   </h2>
   <p>{description}</p>
 </article>
