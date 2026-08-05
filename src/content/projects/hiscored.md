@@ -7,4 +7,3 @@ link: "https://www.hiscored.com/"
 sourceLink: "https://github.com/alkmei/hiscored"
 dateRange: "January 2025"
 ---
-
