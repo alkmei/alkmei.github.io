@@ -2,7 +2,6 @@
 import type { JSX } from "astro/jsx-runtime";
 import { Image } from "astro:assets";
 import { getCollection, render } from "astro:content";
-import { Icon } from "astro-icon/components";
 
 import Layout from "@/layouts/Layout.astro";
 
@@ -37,82 +36,77 @@ interface Props {
   Content: () => JSX.Element;
 }
 
-const { title, description, tags, image, link, sourceLink, dateRange, Content } =
-  Astro.props;
+const {
+  title,
+  description,
+  tags,
+  image,
+  link,
+  sourceLink,
+  dateRange,
+  Content,
+} = Astro.props;
 ---
 
 <Layout>
-  <div class="container mx-auto px-4 pt-24 pb-16">
-    <div class="max-w-4xl mx-auto">
-      <a
-        href="/projects/"
-        class="btn btn-ghost btn-sm gap-1 mb-8"
-        data-astro-prefetch
-      >
-        <Icon name="tabler:arrow-left" /> Back to Projects
-      </a>
+  <div>
+    <a href="/" data-astro-prefetch class="underline hover:text-stone-600"
+      >&larr; Back
+    </a>
 
-      <div class="card bg-base-100 border border-base-200 mb-12">
-        {
-          image && (
-            <figure class="h-64 w-full">
-              <Image
-                src={image}
-                alt={title}
-                class="w-full h-full object-cover"
-              />
-            </figure>
-          )
-        }
+    <div>
+      <h1 class="my-4 text-3xl font-bold">{title}</h1>
 
-        <div class="card-body">
-          <h1 class="card-title text-4xl mb-2">{title}</h1>
-          <p class="text-base-content/80 mb-3">{description}</p>
+      {
+        image && (
+          <figure class="max-w-200">
+            <Image src={image} alt={title} class="max-w-full h-auto" />
+          </figure>
+        )
+      }
 
+      <div class="my-4">
+        <p class="mb-4">{description}</p>
+
+        {dateRange && <p class="italic">{dateRange}</p>}
+
+        <ul class="flex gap-2">
           {
-            dateRange && <p class="text-sm text-base-content/50 mb-4">{dateRange}</p>
-          }
-
-          <div class="flex flex-wrap gap-2 mb-4">
-            {
-              tags.map((tag) => (
-                <span class="badge badge-neutral badge-sm">{tag}</span>
-              ))
-            }
-          </div>
-
-          <div class="card-actions justify-end mt-2 gap-2">
-            {
-              link && (
+            link && (
+              <li>
                 <a
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn btn-primary"
+                  class="underline hover:text-stone-600"
                 >
                   Visit Project
                 </a>
-              )
-            }
-            {
-              sourceLink && (
+              </li>
+            )
+          }
+          {
+            sourceLink && (
+              <li>
                 <a
                   href={sourceLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="btn btn-outline"
+                  class="underline hover:text-stone-600"
                 >
-                  <Icon name="tabler:brand-github" /> View Source
+                  View Source
                 </a>
-              )
-            }
-          </div>
-        </div>
+              </li>
+            )
+          }
+        </ul>
       </div>
+    </div>
 
-      <div class="prose prose-lg max-w-none">
-        <Content />
-      </div>
+    <hr class="mb-2" />
+
+    <div class="prose prose-stone">
+      <Content />
     </div>
   </div>
 </Layout>

@@ -1,38 +1,58 @@
 ---
+import { getCollection } from "astro:content";
+
+import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
+
+const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <section class="hero bg-base-200 h-screen min-h-[50rem]">
-    <div class="hero-content text-center">
-      <div class="max-w-md">
-        <h1 class="text-5xl font-bold font-logo text-primary">
-          Hi, I'm Alvin!
-        </h1>
-        <p class="py-6 text-lg">
-          I'm a NYC-based software engineer who builds stuff. I specialize in
-          backend development, both with heavy-duty frameworks and minimal,
-          lightweight tools.
-        </p>
+  <style>
+    #slop-chars {
+      letter-spacing: 0.05em;
+      color: #6b7280;
+    }
+  </style>
+  <h1 class="my-3 text-xl font-bold">Alvin Mei</h1>
 
-        <div class="flex flex-wrap justify-center gap-2">
-          <a
-            class="link-primary link-hover"
-            href="https://github.com/alkmei"
-            aria-label="Visit my Github profile"
-          >
-            Github
-          </a>
+  <nav aria-label="Social links" class="mb-4">
+    <ul class="list-none flex gap-4 m-0 p-0">
+      <li>
+        <a
+          href="https://github.com/alkmei"
+          aria-label="Visit my Github profile"
+          class="underline hover:text-stone-600"
+        >
+          Github
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/alvinmei"
+          aria-label="Visit my LinkedIn profile"
+          class="underline hover:text-stone-600"
+        >
+          LinkedIn
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-          <a
-            class="link-primary link-hover"
-            href="https://www.linkedin.com/in/alvinmei"
-            aria-label="Visit my LinkedIn profile"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
+  <p>I miss shrimp Jesus.</p>
+
+  <section aria-label="Projects" class="mt-6">
+    <h2 class="mb-3 text-lg font-bold">Side Projects</h2>
+    <div class="space-y-4">
+      {
+        projects.map((project) => (
+          <ProjectCard
+            title={project.data.title}
+            description={project.data.description}
+            link={`/projects/${project.id}`}
+          />
+        ))
+      }
     </div>
   </section>
 </Layout>
