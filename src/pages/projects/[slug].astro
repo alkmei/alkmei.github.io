@@ -50,10 +50,12 @@ const {
 
 <Layout>
   <div>
-    <a href="/" data-astro-prefetch>&lt; Back to Projects </a>
+    <a href="/" data-astro-prefetch class="underline hover:text-stone-600"
+      >&larr; Back
+    </a>
 
     <div>
-      <h1 class="my-4 text-xl font-bold">{title}</h1>
+      <h1 class="my-4 text-3xl font-bold">{title}</h1>
 
       {
         image && (
@@ -101,7 +103,9 @@ const {
       </div>
     </div>
 
-    <div class="prose">
+    <hr class="mb-2" />
+
+    <div class="prose prose-stone">
       <Content />
     </div>
   </div>
