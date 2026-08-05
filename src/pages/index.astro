@@ -8,15 +8,15 @@ const projects = await getCollection("projects");
 ---
 
 <Layout>
-  <h1 class="my-3">Alvin Mei</h1>
+  <h1 class="my-3 text-xl font-bold">Alvin Mei</h1>
 
-  <nav aria-label="Social links" class="mb-10">
+  <nav aria-label="Social links" class="mb-4">
     <ul class="list-none flex gap-4 m-0 p-0">
       <li>
         <a
           href="https://github.com/alkmei"
           aria-label="Visit my Github profile"
-          class="font-semibold hover:underline"
+          class="underline hover:text-stone-600"
         >
           Github
         </a>
@@ -25,7 +25,7 @@ const projects = await getCollection("projects");
         <a
           href="https://www.linkedin.com/in/alvinmei"
           aria-label="Visit my LinkedIn profile"
-          class="font-semibold hover:underline"
+          class="underline hover:text-stone-600"
         >
           LinkedIn
         </a>
@@ -33,8 +33,10 @@ const projects = await getCollection("projects");
     </ul>
   </nav>
 
-  <section aria-label="Projects" class="mt-12">
-    <h2 class="mb-4">Side Projects</h2>
+  <p>Find the most difficult path and force yourself down it.</p>
+
+  <section aria-label="Projects" class="mt-6">
+    <h2 class="mb-3 text-lg font-bold">Side Projects</h2>
     <div class="space-y-4">
       {
         projects.map((project) => (

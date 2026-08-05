@@ -50,9 +50,11 @@ const {
 
 <Layout>
   <div>
-    <a href="/" data-astro-prefetch> Back to Projects </a>
+    <a href="/" data-astro-prefetch>&lt; Back to Projects </a>
 
     <div>
+      <h1 class="my-4 text-xl font-bold">{title}</h1>
+
       {
         image && (
           <figure class="max-w-200">
@@ -61,17 +63,21 @@ const {
         )
       }
 
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
+      <div class="my-4">
+        <p class="mb-4">{description}</p>
 
-        {dateRange && <p>{dateRange}</p>}
+        {dateRange && <p class="italic">{dateRange}</p>}
 
-        <ul>
+        <ul class="flex gap-2">
           {
             link && (
               <li>
-                <a href={link} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline hover:text-stone-600"
+                >
                   Visit Project
                 </a>
               </li>
@@ -80,7 +86,12 @@ const {
           {
             sourceLink && (
               <li>
-                <a href={sourceLink} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={sourceLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="underline hover:text-stone-600"
+                >
                   View Source
                 </a>
               </li>
